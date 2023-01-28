@@ -1,0 +1,225 @@
+@Import Url("Https://Fonts.Googleapis.Com/Css2?Family=Poppins:wght@600;900&Display=Swap");
+
+* {
+    Box-Sizing: Border-Box;
+    Margin: 0;
+    Padding: 0;
+}
+
+Body {
+    Font-Family: "Poppins", Sans-Serif;
+    Background-Color: #88abff;
+}
+
+.Wrapper {
+    Margin: 50px;
+    Display: Grid;
+    Grid-Template-Columns: Repeat(Auto-Fill, 265px);
+    Gap: 15px;
+}
+
+.Wrapper Li {
+    Background-Color: #Fff;
+    List-Style: None;
+    Height: 250px;
+    Border-Radius: 5px;
+    Padding: 15px 20px 20px;
+}
+
+.Wrapper .Note {
+    Display: Flex;
+    Flex-Direction: Column;
+    Justify-Content: Space-Between;
+}
+
+.Add-Box,
+.Icon,
+.Bottom-Content {
+    Display: Flex;
+    Justify-Content: Center;
+    Align-Items: Center;
+    Flex-Direction: Column;
+}
+
+.Add-Box .Icon {
+    Height: 78px;
+    Width: 78px;
+    Border-Radius: 50%;
+    Border: 2px Dashed Powderblue;
+    Font-Size: 40px;
+    Color: #88abff;
+    Cursor: Pointer;
+}
+
+.Add-Box P {
+    Font-Weight: 500;
+    Margin-Top: 20px;
+    Color: #88abff;
+}
+
+.Note P {
+    Font-Size: 22px;
+    Font-Weight: 500;
+}
+
+.Note Span {
+    Display: Block;
+    Font-Size: 16px;
+    Color: #575757;
+    Margin-Top: 5px;
+}
+
+.Note .Bottom-Content {
+    Flex-Direction: Row;
+    Justify-Content: Space-Between;
+    Padding-Top: 10px;
+    Border-Top: 1px Solid #Ccc;
+}
+
+.Bottom-Content Span {
+    Color: #6d6d6d;
+    Font-Size: 14px;
+}
+
+.Bottom-Content .Settings I {
+    Cursor: Pointer;
+    Font-Size: 15px;
+    Color: #6d6d6d;
+}
+
+.Settings {
+    Position: Relative;
+}
+
+.Settings .Menu {
+    Box-Shadow: 0 0 6px Rgba(0, 0, 0, 0.15);
+    Position: Absolute;
+    Bottom: 0;
+    Padding: 5px 0;
+    Border-Radius: 4px;
+    Background-Color: #Fff;
+    Right: -4px;
+
+    Transform: Scale(0);
+    Transform-Origin: Bottom Right;
+    Transition: Transform 0.2s Ease;
+}
+
+.Settings.Show .Menu {
+    Transform: Scale(1);
+}
+
+.Settings .Menu Li {
+    Height: 25px;
+    Border-Radius: 0;
+    Display: Flex;
+    Align-Items: Center;
+    Justify-Content: Flex-Start;
+    Cursor: Pointer;
+    Font-Size: 16px;
+    Padding: 17px 15px;
+}
+
+.Menu Li I {
+    Padding-Right: 8px;
+}
+
+.Menu Li:hover {
+    Background-Color: #F5f5f5;
+}
+
+.Popup-Box {
+    Position: Fixed;
+    Top: 0;
+    Left: 0;
+    Width: 100%;
+    Height: 100%;
+    Background-Color: Rgba(0, 0, 0, 0.4);
+}
+
+.Popup-Box .Popup {
+    Position: Absolute;
+    Top: 50%;
+    Left: 50%;
+    Transform: Translate(-50%, -50%);
+    Z-Index: 2;
+    Max-Width: 400px;
+    Width: 100%;
+}
+
+.Popup .Content {
+    Background-Color: #Fff;
+    Border-Radius: 5px;
+}
+
+.Popup .Content Header {
+    Border-Bottom: 1px Solid #Ccc;
+    Display: Flex;
+    Justify-Content: Space-Between;
+    Padding: 15px 25px;
+}
+
+.Popup .Content Header P {
+    Font-Weight: 500;
+    Font-Size: 20px;
+}
+
+.Popup .Content Header I {
+    Font-Size: 23px;
+    Cursor: Pointer;
+    Color: #8b8989;
+}
+
+.Content Form {
+    Margin: 15px 25px 35px;
+}
+
+.Content Form :Where(Input, Textarea) {
+    Width: 100%;
+    Height: 50px;
+    Outline: None;
+    Font-Size: 17px;
+    Border-Radius: 4px;
+    Border: 1px Solid #999;
+    Padding: 0 15px;
+}
+
+Form .Row Label {
+    Margin-Bottom: 6px;
+    Font-Size: 18px;
+    Display: Block;
+}
+
+.Content Form Textarea {
+    Height: 150px;
+    Resize: None;
+    Padding: 8px 15px;
+}
+
+.Content Form Button {
+    Background-Color: #6a93f8;
+    Height: 50px;
+    Width: 100%;
+    Margin: 15px 0;
+    Border: None;
+    Font-Size: 17px;
+    Cursor: Pointer;
+    Border-Radius: 4px;
+    Color: #Fff;
+}
+
+.Popup-Box,
+.Popup-Box.Popup {
+    Opacity: 0;
+    Pointer-Events: None;
+    Transition: All 0.25s Ease;
+}
+
+.Popup-Box.Show {
+    Opacity: 1;
+    Pointer-Events: Auto;
+}
+
+.Hide-Icon {
+    Display: None;
+}
