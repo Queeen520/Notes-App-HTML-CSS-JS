@@ -1,7 +1,7 @@
-Const AddBox = Document.QuerySelector(".Add-Box");
-Const PopupBox = Document.QuerySelector(".Popup-Box");
+const AddBox = Document.QuerySelector(".Add-Box");
+const PopupBox = Document.QuerySelector(".Popup-Box");
 
-Const Months = [
+const Months = [
   "Jan",
   "Feb",
   "Mar",
@@ -16,19 +16,19 @@ Const Months = [
   "Dec",
 ];
 
-Const CloseBox = PopupBox.QuerySelector("Header I");
-Const TitleTag = PopupBox.QuerySelector("Input");
-Const DescTag = PopupBox.QuerySelector("Textarea");
-Const AddBtn = PopupBox.QuerySelector("Button");
+const CloseBox = PopupBox.QuerySelector("Header I");
+const Titletag = PopupBox.QuerySelector("Input");
+const DescTag = PopupBox.QuerySelector("Textarea");
+const AddBtn = PopupBox.QuerySelector("Button");
 
-Const Notes = JSON.Parse(LocalStorage.GetItem("Notes") || "[]");
+const Notes = JSON.Parse(LocalStorage.GetItem("Notes") || "[]");
 
-Const Menuel = Document.QuerySelector(".Iconel");
+const Menuel = Document.QuerySelector(".Iconel");
 
-Const ShowNotes = () => {
+const ShowNotes = () => {
   Document.QuerySelectorAll(".Note").ForEach((Note) => Note.Remove());
   Notes.ForEach((Note, Index) => {
-    Let Litag = `<Li Class="Note">
+    let Litag = `<Li Class="Note">
                             <Div Class="Details">
                                 <P> ${Note.Title} </P>
                                 <Span>${Note.Description}
@@ -50,25 +50,25 @@ Const ShowNotes = () => {
   });
 };
 
-Function ShowMenu(Elem) {
+function ShowMenu(Elem) {
   Elem.ParentElement.ClassList.Add("Show");
   Document.Onclick = (E) => {
-    If (E.Target.TagName != "I" || E.Target != Elem) {
+    if (E.Target.TagName != "I" || E.Target != Elem) {
       Elem.ParentElement.ClassList.Remove("Show");
     }
   };
   // Console.Log(Elem)
 }
 
-Function DeleteNote(NoteId) {
+function DeleteNote(NoteId) {
   Notes.Splice(NoteId, 1);
 
   LocalStorage.SetItem("Notes", JSON.Stringify(Notes));
   ShowNotes();
 }
 
-Function EditNote(NoteId, Title, Description) {
-  TitleTag.Value = Title;
+function EditNote(NoteId, Title, Description) {
+  Titletag.Value = Title;
   DescTag.Value = Description;
   AddBox.Click();
 
@@ -78,7 +78,7 @@ Function EditNote(NoteId, Title, Description) {
 
 AddBox.Onclick = () => PopupBox.ClassList.Add("Show");
 CloseBox.Onclick = () => {
-  TitleTag.Value = "";
+  Titletag.Value = "";
   DescTag.Value = "";
   PopupBox.ClassList.Remove("Show");
 };
@@ -87,15 +87,15 @@ AddBtn.Onclick = (E) => {
   E.PreventDefault();
   //    Menuel.ClassList.Add('Hide-Icon')
 
-  Let Ti = TitleTag.Value;
-  Let Desc = DescTag.Value;
+  let Ti = TitLetag.Value;
+  let Desc = DescTag.Value;
 
-  Let CurrentDate = New Date();
-  Let Month = Months[CurrentDate.GetMonth()];
-  Let Day = CurrentDate.GetDate();
-  Let Year = CurrentDate.GetFullYear();
+  let CurrentDate = new Date();
+  let Month = Months[CurrentDate.GetMonth()];
+  let Day = CurrentDate.GetDate();
+  let Year = CurrentDate.GetFullYear();
 
-  Let NoteInfo = {
+  let NoteInfo = {
     Title: Ti,
     Description: Desc,
     Date: `${Day} ${Month} ${Year}`,
